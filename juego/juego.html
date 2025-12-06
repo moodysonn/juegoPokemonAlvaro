@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Combate Pokémon</title>
+
+        <link rel="stylesheet" href="../estilos/juego.css">
+        <script defer src="https://unpkg.com/@supabase/supabase-js@2"></script>
+        <script defer src="juego.js"></script>
+    </head>
+    <body>
+
+        <div id="campo-batalla">
+
+            <div id="marcador">
+                
+                <img id="img-marcador" src="../imagenes/marcador.png" alt="Marcador"/>
+                
+                <div id="log-combate">
+
+                    <ul id="lista-log"></ul>
+
+                </div>
+
+            </div>
+
+            <div id="jugador-1" class="lado-batalla">
+
+                <h2 id="titulo-j1"></h2>
+                <img id="sprite-j1" src="" alt="Pokémon J1">
+                
+                <div id="info-j1" class="panel-vida">
+                    
+                    <span id="nombre-j1"></span>
+                    
+                    <div id="barra-vida-j1" class="barra-vida">
+
+                        <div id="vida-fill-j1" class="vida-fill"></div>
+                        <span id="vida-j1" class="vida-texto"></span>
+
+                    </div>
+
+                    <div id="balls-j1" class="balls"></div>
+
+                </div>
+                
+            </div>
+
+            <div id="jugador-2" class="lado-batalla">
+
+                <h2 id="titulo-j2"></h2>
+                <img id="sprite-j2" src="" alt="Pokémon J2">
+                
+                <div id="info-j2" class="panel-vida">
+                    
+                    <span id="nombre-j2"></span>
+                    
+                    <div id="barra-vida-j2" class="barra-vida">
+
+                        <div id="vida-fill-j2" class="vida-fill"></div>
+                        <span id="vida-j2" class="vida-texto"></span>
+
+                    </div>
+
+                    <div id="balls-j2" class="balls"></div>
+
+                </div>
+
+            </div>
+
+            <div id="controles">
+
+                <div id="grupo-izquierda">
+
+                    <button id="btn-mochila">MOCHILA</button>
+                    <button id="btn-atacar">LUCHAR</button>
+
+                </div>
+
+                <div id="grupo-derecha">
+
+                    <button id="btn-cambiar">POKEMONS</button>
+                    <button id="btn-huir">HUIR</button>
+
+                </div>
+
+                <div id="menu-cambiar" class="menu-cambiar oculto"></div>
+                <div id="menu-mochila" class="menu-mochila oculto"></div>
+                
+            </div>
+
+        </div>
+
+    </body>
+</html>

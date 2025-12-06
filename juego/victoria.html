@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Victoria</title>
+        <link rel="stylesheet" href="../estilos/victoria.css">
+    </head>
+    <body>
+        
+        <div class="fondo-animado"></div>
+
+        <div class="contenedor">
+            
+            <h1 class="titulo">ENHORABUENA!</h1>
+            
+            <h2 class="subtitulo">
+                <span id="mensaje-ganador"></span>
+            </h2>
+
+            <button id="btn-reiniciar">VOLVER A JUGAR</button>
+        
+        </div>
+    
+        <script>
+
+            //Para poder redirigir correctamente si no existe el sessionStorage
+            window.onload=()=>{
+
+                //Obtengo el nombre del ganador que se guardó al terminar la partida
+                let nombreGanador=sessionStorage.getItem("nombreGanador");
+
+                // Si no hay nada en sessionStorage, volvemos a la pantalla de selección de pokemons
+                if(!nombreGanador){
+                    window.location.href="../index.html";
+                    return;
+                }
+
+                //Muestro un mensaje de victoria personalizado con ese nombre
+                let mensaje=`¡Bien hecho ${nombreGanador}, has ganado!!`;
+                document.getElementById("mensaje-ganador").textContent=mensaje;
+                
+                //Al pulsar "VOLVER A JUGAR", limpio el sessionStorage del ganador y vuelvo al inicio
+                document.getElementById("btn-reiniciar").addEventListener("click",()=>{
+                    
+                    //Limpio todo el sessionStorage para la siguiente partida
+                    sessionStorage.removeItem("nombreGanador");
+                    window.location.href="../index.html";
+                });
+            }
+            
+        </script>
+    </body>
+</html>
+
+

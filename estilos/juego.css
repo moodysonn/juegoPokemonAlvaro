@@ -1,0 +1,396 @@
+html, body{
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    color: #fff;
+    position: relative;
+    background-image:url('../imagenes/campoVacio.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+body.fade-out{
+animation: fadeGradientOut 0.7s ease forwards;
+position: relative;
+}
+
+@keyframes fadeGradientOut{
+    0% {
+        opacity: 1;
+        background: radial-gradient(circle at center, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 60%);
+    }
+    100% {
+        opacity: 0;
+        background: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 70%);
+    }
+}
+
+.pokemon-fade-out{
+    animation: pokemonFade 0.45s ease forwards;
+}
+
+@keyframes pokemonFade{
+    from { 
+        opacity: 1; filter: brightness(1); 
+}
+    to{ 
+        opacity: 0; filter: brightness(0.3); 
+}
+}
+
+h1{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    margin: 0;
+    font-size: 26px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+#campo-batalla{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#jugador-1{
+    left: 20%;
+    bottom: 8%;
+}
+
+#jugador-2{
+    right: 20%;
+    bottom: 35%;
+}
+
+#sprite-j1, #sprite-j2{
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+#sprite-j1{
+    width: 350px;
+    height: 350px;
+}
+
+#sprite-j2{
+    width: 350px;
+    height: 350px;
+}
+
+
+#info-j1, #info-j2{
+    margin-top: 4px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.lado-batalla{
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.jugador-activo{
+    background: rgba(3, 53, 43, 0.61);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+    color: #00ffcc;
+    padding: 10px 6px;
+    border-radius: 4px;
+    min-width: 160px;
+    backdrop-filter: blur(10px);
+}
+
+#titulo-j1, #titulo-j2{
+    position: absolute;
+    left: 50%;
+    top: -70px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+#marcador{
+    position: absolute;
+    top: 0%;
+    left: 12%;
+    transform: translateX(-50%);
+    width: 1300px;
+    aspect-ratio: 16 / 5;
+    z-index: 2;
+}
+
+#img-marcador{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+#log-combate{
+    position: absolute;
+    top: 9%;
+    width: 293px;
+    height: 180px;
+    padding: 6px 12px;
+    overflow-y: auto;
+    margin-left: 493px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: radial-gradient(circle at top,rgba(40, 80, 60, 0.95),rgba(10, 25, 18, 0.98));
+    box-shadow:0 0 0 2px rgba(0, 255, 204, 0.25),0 10px 18px rgba(0, 0, 0, 0.8),0 0 22px rgba(0, 255, 204, 0.35);
+    backdrop-filter: blur(4px);
+    color: #e9fff2;
+    font-size: 14px;
+    text-align: center;
+    scrollbar-width: none;
+}
+
+#log-combate::-webkit-scrollbar{
+    display: none;
+}
+
+#lista-log{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+}
+
+#lista-log li{
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+#controles{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+#grupo-derecha, #grupo-izquierda{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#btn-mochila, #btn-atacar , #btn-huir, #btn-cambiar{
+    width: 225px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+    color: #ffffff;
+    transition:transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+#btn-huir{
+    background: linear-gradient(135deg, #1e90ff, #0046b3);
+    box-shadow:0 0 0 2px rgba(80, 160, 255, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 160, 255, 0.7);
+}
+
+#btn-cambiar{
+    background: linear-gradient(135deg, #1ccf4d, #0b8a2a);
+    box-shadow:0 0 0 2px rgba(80, 255, 150, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 255, 150, 0.7);
+}
+
+#btn-atacar{
+    background: linear-gradient(135deg, #ff3838, #b31217);
+    box-shadow:0 0 0 2px rgba(255, 80, 80, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 80, 80, 0.7);
+}
+
+#btn-mochila{
+    background: linear-gradient(135deg, #ff8c00, #cc7000);
+    box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 140, 0, 0.7);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+#btn-mochila:hover{
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.1);
+box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 165, 80, 1);
+}
+
+#btn-atacar:hover{
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.1);
+    box-shadow: 0 0 0 3px rgba(255, 120, 120, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 120, 120, 1);
+}
+
+#btn-huir:hover{
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.1);
+    box-shadow: 0 0 0 3px rgba(140, 200, 255, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(140, 200, 255, 1);
+}
+
+#btn-cambiar:hover{
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.1);
+    box-shadow:0 0 0 3px rgba(140, 255, 200, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(140, 255, 200, 1);
+}
+
+#btn-mochila:disabled, #btn-atacar:disabled, #btn-cambiar:disabled, #btn-huir:disabled{
+    background: #555;
+    color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+.menu-cambiar{
+    position: absolute;
+    width: 220px;
+    bottom: 120px;
+    right: 110px;
+    background: radial-gradient(circle at top, #1f3d28, #1b422b);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 220px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50%) translateY(10px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.8), 0 0 20px rgba(0,255,180,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.menu-mochila{
+    position: absolute;
+    width: 220px;
+    bottom: 120px;
+    right: 350px;
+    background: radial-gradient(circle at top, #1f3d28, #1b422b);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 220px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50%) translateY(10px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.8), 0 0 20px rgba(0,255,180,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.menu-cambiar.oculto, .menu-mochila.oculto{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.menu-cambiar:not(.oculto), .menu-mochila:not(.oculto){
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%) translateY(0);
+}
+
+
+.btn-opcion-cambio{
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #264d31, #163322);
+    color: #e9ffe9;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.btn-opcion-cambio:hover{
+    background: linear-gradient(135deg, #2fa36a, #1b7b4b);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
+.barra-vida{
+    position: relative;
+    height: 20px;
+    padding: 3px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 6px auto 0;
+}
+
+.vida-fill{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: #1ccf4d;
+    transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.vida-texto{
+    position: relative;
+    z-index: 1;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.panel-vida{
+    width: 300px;
+    background: radial-gradient(circle at top, rgba(40, 60, 90, 0.95), rgba(10, 15, 25, 0.95));
+    padding: 6px 12px 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    box-shadow: 0 0 0 2px rgba(0, 255, 204, 0.25), 0 10px 18px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 204, 0.35);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.balls{
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    margin-top: 6px;
+}
+
+.balls img{
+    width: 35px;
+    height: 35px;
+}
+
+#nombre-j1, #nombre-j2{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+#jugador-1.lado-batalla{
+    transform: scale(0.85);
+    transform-origin: center bottom;
+}
+
+#jugador-2.lado-batalla{
+    transform: scale(0.85);
+    transform-origin: center bottom;
+}
