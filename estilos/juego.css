@@ -7,25 +7,25 @@ body{
     font-family: Arial, sans-serif;
     color: #fff;
     position: relative;
-    background-image:url('../imagenes/campoVacio.png');
+    background-image: url('../imagenes/campoVacio.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
 
 body.pantallaDesvanecida{
-animation: fadeGradientOut 0.7s ease forwards;
-position: relative;
+    animation: fadeGradientOut 0.7s ease forwards;
+    position: relative;
 }
 
 @keyframes fadeGradientOut{
-    0%{
+    0% {
         opacity: 1;
-        background: radial-gradient(circle at center, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 60%);
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60%);
     }
-    100%{
+    100% {
         opacity: 0;
-        background: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 70%);
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 70%);
     }
 }
 
@@ -34,12 +34,14 @@ position: relative;
 }
 
 @keyframes pokemonFade{
-    from { 
-        opacity: 1; filter: brightness(1); 
-}
-    to{ 
-        opacity: 0; filter: brightness(0.3); 
-}
+    from{
+        opacity: 1;
+        filter: brightness(1);
+    }
+    to{
+        opacity: 0;
+        filter: brightness(0.3);
+    }
 }
 
 h1{
@@ -129,15 +131,15 @@ h1{
 
 #registroCombate{
     position: absolute;
-    top: 4%;
+    top: 5.3%;
     width: 293px;
     height: 180px;
-    margin-left: 70px;
+    margin-left: 25px;
     padding: 6px 12px;
     overflow-y: auto;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background: radial-gradient(circle at top,rgba(40, 80, 60, 0.95),rgba(10, 25, 18, 0.98));
-    box-shadow:0 0 0 2px rgba(0, 255, 204, 0.25),0 10px 18px rgba(0, 0, 0, 0.8),0 0 22px rgba(0, 255, 204, 0.35);
+    background: radial-gradient(circle at top, rgba(40, 80, 60, 0.95), rgba(10, 25, 18, 0.98));
+    box-shadow: 0 0 0 2px rgba(0, 255, 204, 0.25), 0 10px 18px rgba(0, 0, 0, 0.8), 0 0 22px rgba(0, 255, 204, 0.35);
     backdrop-filter: blur(4px);
     color: #e9fff2;
     font-size: 14px;
@@ -187,22 +189,22 @@ h1{
     border-radius: 12px;
     border: none;
     color: #ffffff;
-    transition:transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 #botonHuir{
     background: linear-gradient(135deg, #1e90ff, #0046b3);
-    box-shadow:0 0 0 2px rgba(80, 160, 255, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 160, 255, 0.7);
+    box-shadow: 0 0 0 2px rgba(80, 160, 255, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 160, 255, 0.7);
 }
 
 #botonCambiar{
     background: linear-gradient(135deg, #1ccf4d, #0b8a2a);
-    box-shadow:0 0 0 2px rgba(80, 255, 150, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 255, 150, 0.7);
+    box-shadow: 0 0 0 2px rgba(80, 255, 150, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 255, 150, 0.7);
 }
 
 #botonAtacar{
     background: linear-gradient(135deg, #ff3838, #b31217);
-    box-shadow:0 0 0 2px rgba(255, 80, 80, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 80, 80, 0.7);
+    box-shadow: 0 0 0 2px rgba(255, 80, 80, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 80, 80, 0.7);
 }
 
 #botonMochila{
@@ -214,7 +216,7 @@ h1{
 #botonMochila:hover{
     transform: translateY(-2px) scale(1.03);
     filter: brightness(1.1);
-box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 165, 80, 1);
+    box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 165, 80, 1);
 }
 
 #botonAtacar:hover{
@@ -232,7 +234,7 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
 #botonCambiar:hover{
     transform: translateY(-2px) scale(1.03);
     filter: brightness(1.1);
-    box-shadow:0 0 0 3px rgba(140, 255, 200, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(140, 255, 200, 1);
+    box-shadow: 0 0 0 3px rgba(140, 255, 200, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(140, 255, 200, 1);
 }
 
 #botonMochila:disabled, #botonAtacar:disabled, #botonCambiar:disabled, #botonHuir:disabled{
@@ -248,7 +250,7 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
     position: absolute;
     width: 220px;
     bottom: 170px;
-    right: 210px;
+    right: 190px;
     background: radial-gradient(circle at top, #1f3d28, #1b422b);
     border-radius: 12px;
     padding: 10px;
@@ -260,15 +262,15 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
     opacity: 0;
     visibility: hidden;
     transform: translateX(50%) translateY(10px);
-    box-shadow: 0 10px 18px rgba(0,0,0,0.8), 0 0 20px rgba(0,255,180,0.35);
-    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 180, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
 .menuMochila{
     position: absolute;
     bottom: 170px;
-    right: 450px;
+    right: 430px;
     background: radial-gradient(circle at top, #1f3d28, #1b422b);
     border-radius: 12px;
     padding: 10px;
@@ -280,8 +282,8 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
     opacity: 0;
     visibility: hidden;
     transform: translateX(50%) translateY(10px);
-    box-shadow: 0 10px 18px rgba(0,0,0,0.8), 0 0 20px rgba(0,255,180,0.35);
-    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 180, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
@@ -311,13 +313,13 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
     justify-content: space-between;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .botonOpcionCambio:hover{
     background: linear-gradient(135deg, #2fa36a, #1b7b4b);
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .barraVida{
@@ -347,7 +349,7 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
     line-height: 20px;
 }
 
-.panelVida{ 
+.panelVida{
     width: 300px;
     background: radial-gradient(circle at top, rgba(40, 60, 90, 0.95), rgba(10, 15, 25, 0.95));
     padding: 6px 12px 10px;
@@ -370,7 +372,7 @@ box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0
     height: 35px;
 }
 
-#nombrePokemon1, #nombrePokemon2{ 
+#nombrePokemon1, #nombrePokemon2{
     font-size: 20px;
     font-weight: bold;
 
