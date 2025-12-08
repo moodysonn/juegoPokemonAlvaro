@@ -604,6 +604,7 @@ function abrirMenuMochila(){
             hayOpciones=true;
             let btn=document.createElement("button");
             btn.className="botonOpcionCambio";
+			btn.style.maxWidth="200px";
             btn.textContent=`${e.texto} x${pociones[e.tipo]}`;
 
             //Al hacer clic, uso una poción de ese tipo
