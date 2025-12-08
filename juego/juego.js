@@ -121,31 +121,31 @@ function actualizarUI(){
 	let vida2=vidasEquipo2[indice2];
 
 	//imagenes de los pokemons
-	document.getElementById("sprite-j1").src=p1.imagenEspalda;
-	document.getElementById("sprite-j2").src=p2.imagenFrente;
+	document.getElementById("imagenPokemon1").src=p1.imagenEspalda;
+	document.getElementById("imagenPokemon2").src=p2.imagenFrente;
 
 	//Nombres de los pokemon activos
-	document.getElementById("nombre-j1").textContent=p1.nombre;
-	document.getElementById("nombre-j2").textContent=p2.nombre;
+	document.getElementById("nombrePokemon1").textContent=p1.nombre;
+	document.getElementById("nombrePokemon2").textContent=p2.nombre;
 
 	//Texto de HP (vida actual / vida total)
-	document.getElementById("vida-j1").textContent=`HP: ${vida1}/${p1.vida}`;
-	document.getElementById("vida-j2").textContent=`HP: ${vida2}/${p2.vida}`;
+	document.getElementById("textoVida1").textContent=`HP: ${vida1}/${p1.vida}`;
+	document.getElementById("textoVida2").textContent=`HP: ${vida2}/${p2.vida}`;
 
 	//Nombres de los jugadores
-	document.getElementById("titulo-j1").textContent=nombreJ1;
-	document.getElementById("titulo-j2").textContent=nombreJ2;
+	document.getElementById("tituloJugador1").textContent=nombreJ1;
+	document.getElementById("tituloJugador2").textContent=nombreJ2;
 
 	//Barras de vida
-	actualizarBarraVida("j1", vida1, p1.vida);
-	actualizarBarraVida("j2", vida2, p2.vida);
+	actualizarBarraVida(1, vida1, p1.vida);
+	actualizarBarraVida(2, vida2, p2.vida);
 }
 
 //Redibujo las pokeballs de cada jugador según si sus pokemon están vivos o muertos
 function renderPokeballs(){
 
-	pintarPokeballsEquipo("balls-j1", vidasEquipo1);
-	pintarPokeballsEquipo("balls-j2", vidasEquipo2);
+	pintarPokeballsEquipo("pokeballsJugador1", vidasEquipo1);
+	pintarPokeballsEquipo("pokeballsJugador2", vidasEquipo2);
 
 }
 
@@ -172,7 +172,7 @@ function pintarPokeballsEquipo(idContenedor, vidas){
 //Ajusto el ancho y el color de la barra de vida según el porcentaje de vida actual del pokemon
 function actualizarBarraVida(id, vidaActual, vidaTotal){
 
-	let fill=document.getElementById(`vida-fill-${id}`);
+	let fill=document.getElementById(`rellenoVida${id}`);
 	let porc=Math.max(0, Math.min(vidaActual/vidaTotal, 1));
 	fill.style.width=porc*100+"%";
 
@@ -190,16 +190,16 @@ function actualizarBarraVida(id, vidaActual, vidaTotal){
 //Resalto, en la UI, de qué jugador es el turno actual, añadiendo o quitando la clase jugador-activo
 function resaltarTurno(){
 
-	let t1=document.getElementById("titulo-j1");
-	let t2=document.getElementById("titulo-j2");
-	t1.classList.remove("jugador-activo");
-	t2.classList.remove("jugador-activo");
+	let t1=document.getElementById("tituloJugador1");
+	let t2=document.getElementById("tituloJugador2");
+	t1.classList.remove("jugadorActivo");
+	t2.classList.remove("jugadorActivo");
 
 	if(turno===1){
-		t1.classList.add("jugador-activo");
+		t1.classList.add("jugadorActivo");
 	} 
 	else{
-		t2.classList.add("jugador-activo");
+		t2.classList.add("jugadorActivo");
 	}
 }
 
@@ -213,12 +213,12 @@ function actualizarTodo(){
 //Añado una línea al log de combate y hago que el scroll sea automático (para que siempre se vea el último mensaje)
 function registrarLog(texto){
 
-	let lista=document.getElementById("lista-log");
+	let lista=document.getElementById("listaRegistroCombate");
 	let li=document.createElement("li");
 	li.textContent=texto;
 	lista.appendChild(li);
 
-	let contenedor=document.getElementById("log-combate");
+	let contenedor=document.getElementById("registroCombate");
 	contenedor.scrollTop=contenedor.scrollHeight;
 }
 
@@ -363,10 +363,10 @@ function atacar(){
 		actualizarTodo();
 
 		//Cojo la imagen del pokemon que ha mueto para añadirle un efecto
-		let spriteKO=turno==1? document.getElementById("sprite-j2"):document.getElementById("sprite-j1");
+		let spriteKO=turno==1? document.getElementById("imagenPokemon2"):document.getElementById("imagenPokemon1");
 
 		//Le agrego el efecto a la imagen del pokemon que ha muerto
-		spriteKO.classList.add("pokemon-fade-out");
+		spriteKO.classList.add("pokemonDesvanecido");
 
 		//Espero un poco para que se haga la animación y luego cambio de pokemon
 		setTimeout(()=>{
@@ -379,7 +379,7 @@ function atacar(){
 				cambiarTurnoYActualizar();
 
 				//Quito la clase de fade-out (el efecto) a la nueva imagen que entra
-				spriteKO.classList.remove("pokemon-fade-out");
+				spriteKO.classList.remove("pokemonDesvanecido");
 			}
 		}, 450);
 
@@ -487,7 +487,7 @@ function finDePartida(){
 //Oculto el menú de cambio de pokemon (no hace falta vaciar innerHTML aquí porque abrirMenuCambio ya lo hace)
 function cerrarMenuCambio(){
 
-	let menu=document.getElementById("menu-cambiar");
+	let menu=document.getElementById("menuCambiarPokemon");
 	menu.classList.add("oculto");
 	menu.innerHTML="";
 
@@ -526,7 +526,7 @@ function cambiarPokemon(nuevoIndice){
 //Relleno el menú de cambio con todos los pokemon del jugador actual que estén vivos y que NO sean el que está actualmente en combate. Si no hay opciones válidas, muestra un mensaje informativo, además, muestra el menú y programa su autocierre
 function abrirMenuCambio(){
 
-	let menu=document.getElementById("menu-cambiar");
+	let menu=document.getElementById("menuCambiarPokemon");
 	menu.innerHTML="";
 	let {equipo:equipoActual, vidas:vidasActual, indice:indiceActual}=getJugadorActual();
 	let hayOpciones=false;
@@ -548,7 +548,7 @@ function abrirMenuCambio(){
 		//Voy creando los botones de cambio para cada pokemon
 		let btn=document.createElement("button");
 		btn.textContent=`${e.nombre} (HP: ${vidasActual[i]}/${e.vida})`;
-		btn.className="btn-opcion-cambio";
+		btn.className="botonOpcionCambio";
 
 		btn.addEventListener("click",()=>{
 			cambiarPokemon(i);
@@ -578,7 +578,7 @@ function abrirMenuCambio(){
 
 function cerrarMenuMochila(){
 
-    let menu=document.getElementById("menu-mochila");
+    let menu=document.getElementById("menuMochila");
     menu.classList.add("oculto");
 
     clearTimeout(timeoutMenuMochila);
@@ -588,7 +588,7 @@ function cerrarMenuMochila(){
 
 function abrirMenuMochila(){
 
-    let menu=document.getElementById("menu-mochila");
+    let menu=document.getElementById("menuMochila");
     menu.innerHTML="";
 
     let {pociones}=getJugadorActual();
@@ -603,7 +603,7 @@ function abrirMenuMochila(){
         if(pociones[e.tipo]>0){
             hayOpciones=true;
             let btn=document.createElement("button");
-            btn.className="btn-opcion-cambio";
+            btn.className="botonOpcionCambio";
             btn.textContent=`${e.texto} x${pociones[e.tipo]}`;
 
             //Al hacer clic, uso una poción de ese tipo
@@ -636,10 +636,10 @@ function abrirMenuMochila(){
 
 //Desactivo todos los botones de control (atacar, mochila, huir y cambiar)
 function desactivarControles() {
-    document.getElementById("btn-atacar").disabled=true;
-    document.getElementById("btn-mochila").disabled=true;
-    document.getElementById("btn-huir").disabled=true;
-    document.getElementById("btn-cambiar").disabled=true;
+    document.getElementById("botonAtacar").disabled=true;
+    document.getElementById("botonMochila").disabled=true;
+    document.getElementById("botonHuir").disabled=true;
+    document.getElementById("botonCambiar").disabled=true;
     cerrarMenuCambio();
 }
 
@@ -659,7 +659,7 @@ function terminarPartida(ganador){
 
     //Aplico una clase de fade-out (el efecto para pasar a victoria) al body
     setTimeout(()=>{
-    document.body.classList.add("fade-out");
+    document.body.classList.add("pantallaDesvanecida");
     }, 400);
 
     //Pasado un poco más de tiempo, redirecciono a victoria.html
@@ -692,8 +692,8 @@ window.onload=()=>{
 
     iniciarCombate();
 
-    document.getElementById("btn-atacar").addEventListener("click", atacar);
-    document.getElementById("btn-huir").addEventListener("click", huir);
-    document.getElementById("btn-cambiar").addEventListener("click", abrirMenuCambio);
-    document.getElementById("btn-mochila").addEventListener("click", abrirMenuMochila);
+    document.getElementById("botonAtacar").addEventListener("click", atacar);
+    document.getElementById("botonHuir").addEventListener("click", huir);
+    document.getElementById("botonCambiar").addEventListener("click", abrirMenuCambio);
+    document.getElementById("botonMochila").addEventListener("click", abrirMenuMochila);
 };
