@@ -57,19 +57,19 @@ function actualizarTextoEquipo(idElemento, nombres){
 function setJugadorActivo(numJugador){
 
 	//Cojo los títulos de los dos jugadores
-	let titulo1=document.getElementById("titulo-jugador-1");
-	let titulo2=document.getElementById("titulo-jugador-2");
+	let titulo1=document.getElementById("tituloJugador1");
+	let titulo2=document.getElementById("tituloJugador2");
 
 	//Quito la clase de activo de ambos
-	titulo1.classList.remove("jugador-activo");
-	titulo2.classList.remove("jugador-activo");
+	titulo1.classList.remove("jugadorActivo");
+	titulo2.classList.remove("jugadorActivo");
 
 	//Y se la añado solo al que le toque selecionar pokemon
 	if(numJugador==1){
-		titulo1.classList.add("jugador-activo");
+		titulo1.classList.add("jugadorActivo");
 	} 
 	else{
-		titulo2.classList.add("jugador-activo");
+		titulo2.classList.add("jugadorActivo");
 	}
 }
 
@@ -118,14 +118,14 @@ async function cargarPokemons(){
 function renderPokemons(pokemons){
 
 	//Obtengo el contenedor donde se van a añadir las cartas
-	let contenedor=document.getElementById("lista-pokemons");
+	let contenedor=document.getElementById("listaPokemons");
 
 	//Recorro todos los pokemos para ir creando cada carta
 	pokemons.forEach((pokemon)=>{
 
 		//Creo la carta, que será un div
 		let card=document.createElement("div");
-		card.className="pokemon-card";
+		card.className="pokemonCard";
 
 		//Cuando haga clic en la carta, creará la imagen y el parrafo con el nombre
 		card.onclick=()=>seleccionarPokemon(pokemon);
@@ -155,7 +155,7 @@ function seleccionarPokemon(pokemon){
 	if(jugadorActual==1){
 
 		//Intento añadir este pokémon al equipo del jugador 1 (aplicando las reglas de máximo 3 y sin duplicados)
-		manejarSeleccionPokemon(pokemon, equipoJugador1, "equipo-jugador-1");
+		manejarSeleccionPokemon(pokemon, equipoJugador1, "equipoJugador1");
 
 		//Si después de añadirlo el equipo 1 tiene ya 3 pokemons
 		if(equipoJugador1.length==3){
@@ -180,12 +180,12 @@ function seleccionarPokemon(pokemon){
 
 	//Hago lo mismo apara el jugador 2
 	if(jugadorActual==2){
-		manejarSeleccionPokemon(pokemon, equipoJugador2, "equipo-jugador-2")
+		manejarSeleccionPokemon(pokemon, equipoJugador2, "equipoJugador2")
 
 		if(equipoJugador2.length==3){
 
 			//Activo el botón de "Comenzar partida porque ya están los dos equipos completos
-			document.getElementById("comenzar-partida").disabled=false;
+			document.getElementById("botonComenzar").disabled=false;
 		}
 	}
 }
@@ -193,11 +193,11 @@ function seleccionarPokemon(pokemon){
 //--------------------INICIO DE PARTIDA--------------------
 
 function inicializarBotonComenzar(){
-	let botonComenzar=document.getElementById("comenzar-partida");
+	let botonComenzar=document.getElementById("botonComenzar");
 
 	botonComenzar.addEventListener("click",()=>{
-	let inputJ1=document.getElementById("titulo-jugador-1");
-	let inputJ2=document.getElementById("titulo-jugador-2");
+	let inputJ1=document.getElementById("tituloJugador1");
+	let inputJ2=document.getElementById("tituloJugador2");
 
 	// Tomo el valor del input, lo limpio de espacios, y si está vacío, pongo un nombre por defecto ("Jugador 1" o "Jugador 2")
 	let nombreJ1=(inputJ1.value || "").trim() || "Jugador 1";

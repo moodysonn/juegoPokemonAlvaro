@@ -7,17 +7,17 @@
     </head>
     <body>
         
-        <div class="fondo-animado"></div>
+        <div class="fondoAnimado"></div>
 
         <div class="contenedor">
             
             <h1 class="titulo">ENHORABUENA!</h1>
             
             <h2 class="subtitulo">
-                <span id="mensaje-ganador"></span>
+                <span id="mensajeGanador"></span>
             </h2>
 
-            <button id="btn-reiniciar">VOLVER A JUGAR</button>
+            <button id="botonReiniciar">VOLVER A JUGAR</button>
         
         </div>
     
@@ -37,10 +37,10 @@
 
                 //Muestro un mensaje de victoria personalizado con ese nombre
                 let mensaje=`¡Bien hecho ${nombreGanador}, has ganado!!`;
-                document.getElementById("mensaje-ganador").textContent=mensaje;
+                document.getElementById("mensajeGanador").textContent=mensaje;
                 
                 //Al pulsar "VOLVER A JUGAR", limpio el sessionStorage del ganador y vuelvo al inicio
-                document.getElementById("btn-reiniciar").addEventListener("click",()=>{
+                document.getElementById("botonReiniciar").addEventListener("click",()=>{
                     
                     //Limpio todo el sessionStorage para la siguiente partida
                     sessionStorage.removeItem("nombreGanador");

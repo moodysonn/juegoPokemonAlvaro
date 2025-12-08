@@ -9,7 +9,7 @@ body{
     overflow-x: hidden;
     }
 
-#zona-equipos{
+#zonaEquipos{
     max-width: 900px;
     margin: 40px auto 60px;
     display: flex;
@@ -18,12 +18,12 @@ body{
     row-gap: 20px;
     }
 
-.col-jugador{
+.coljugador{
     flex: 0 0 45%;
     text-align: center;
 }
 
-#titulo-jugador-1, #titulo-jugador-2{
+#tituloJugador1, #tituloJugador2{
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -41,12 +41,12 @@ body{
     box-sizing: border-box;
 }
 
-#titulo-jugador-1::placeholder, #titulo-jugador-2::placeholder{
+#tituloJugador1::placeholder, #tituloJugador2::placeholder{
     color: #ffcc00;
     opacity: 0.6;
 }
 
-.equipo-box{
+.equipoBox{
     display: block;
     margin: 0 auto;
     padding: 10px;
@@ -58,9 +58,31 @@ body{
     text-align: center;
 }
 
-#zona-equipos #comenzar-partida{
+#zonaEquipos #botonComenzar{
     display: block;
     margin: 30px auto 0;
+}
+
+#botonComenzar{
+    background: #ffcc00;
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#botonComenzar:disabled{
+    background: #555;
+    cursor: not-allowed;
+}
+
+#botonComenzar:hover:not(:disabled){
+    background: #ffd700;
+    transform: scale(1.05);
 }
 
 h1, h2{
@@ -78,7 +100,7 @@ text-align: center;
 }
 
 
-#lista-pokemons{
+#listaPokemons{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 40px;
@@ -86,7 +108,7 @@ text-align: center;
     max-width: 1100px;
     }
 
-.pokemon-card{
+.pokemonCard{
     border: 2px solid #444;
     background: #2a2a3e;
     padding: 16px 12px;
@@ -98,13 +120,13 @@ text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.pokemon-card:hover{
+.pokemonCard:hover{
     border-color: #ffcc00;
     transform: translateY(-3px);
     box-shadow: 0 0 18px rgba(255, 204, 0, 0.4);
 }
 
-.pokemon-card img{
+.pokemonCard img{
     width: 96px;
     height: 96px;
     object-fit: contain;
@@ -113,35 +135,13 @@ text-align: center;
     margin: 0 auto 8px;
 }
 
-.pokemon-card p{
+.pokemonCard p{
     margin: 0;
     font-size: 13px;
     font-weight: bold;
 }
 
-button{
-    background: #ffcc00;
-    color: #1a1a2e;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-button:disabled{
-    background: #555;
-    cursor: not-allowed;
-}
-
-button:hover:not(:disabled){
-    background: #ffd700;
-    transform: scale(1.05);
-}
-
-.jugador-activo{
+.jugadorActivo{
     padding: 6px 14px;
     border-radius: 6px;
     background: #233554;
