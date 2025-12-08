@@ -363,10 +363,10 @@ function atacar(){
 		actualizarTodo();
 
 		//Cojo la imagen del pokemon que ha mueto para añadirle un efecto
-		let spriteKO=turno==1? document.getElementById("imagenPokemon2"):document.getElementById("imagenPokemon1");
+		let pokemonDesvanecido=turno==1? document.getElementById("imagenPokemon2"):document.getElementById("imagenPokemon1");
 
 		//Le agrego el efecto a la imagen del pokemon que ha muerto
-		spriteKO.classList.add("pokemonDesvanecido");
+		pokemonDesvanecido.classList.add("pokemonDesvanecido");
 
 		//Espero un poco para que se haga la animación y luego cambio de pokemon
 		setTimeout(()=>{
@@ -379,7 +379,7 @@ function atacar(){
 				cambiarTurnoYActualizar();
 
 				//Quito la clase de fade-out (el efecto) a la nueva imagen que entra
-				spriteKO.classList.remove("pokemonDesvanecido");
+				pokemonDesvanecido.classList.remove("pokemonDesvanecido");
 			}
 		}, 450);
 
