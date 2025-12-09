@@ -1,9 +1,10 @@
-html, body{
+html,
+body {
     margin: 0;
     height: 100%;
 }
 
-body{
+body {
     font-family: Arial, sans-serif;
     color: #fff;
     position: relative;
@@ -13,38 +14,40 @@ body{
     background-size: cover;
 }
 
-body.pantallaDesvanecida{
+body.pantallaDesvanecida {
     animation: fadeGradientOut 0.7s ease forwards;
     position: relative;
 }
 
-@keyframes fadeGradientOut{
+@keyframes fadeGradientOut {
     0% {
         opacity: 1;
         background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60%);
     }
+
     100% {
         opacity: 0;
         background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 70%);
     }
 }
 
-.pokemonDesvanecido{
+.pokemonDesvanecido {
     animation: pokemonFade 0.45s ease forwards;
 }
 
-@keyframes pokemonFade{
-    from{
+@keyframes pokemonFade {
+    from {
         opacity: 1;
         filter: brightness(1);
     }
-    to{
+
+    to {
         opacity: 0;
         filter: brightness(0.3);
     }
 }
 
-h1{
+h1 {
     position: absolute;
     top: 10px;
     left: 20px;
@@ -53,31 +56,33 @@ h1{
     text-shadow: 2px 2px 4px #000;
 }
 
-#campoBatalla{
+#campoBatalla {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
 
-#contenedorJugador1{
+#contenedorJugador1 {
     left: 20%;
     bottom: 8%;
 }
 
-#contenedorJugador2{
+#contenedorJugador2 {
     right: 20%;
     bottom: 35%;
 }
 
-#imagenPokemon1, #imagenPokemon2{
+#imagenPokemon1,
+#imagenPokemon2 {
     object-fit: contain;
     image-rendering: pixelated;
     width: 350px;
     height: 350px;
 }
 
-#panelInformacion1, #panelInformacion2{
+#panelInformacion1,
+#panelInformacion2 {
     margin-top: 4px;
     font-size: 14px;
     background: rgba(0, 0, 0, 0.6);
@@ -85,14 +90,14 @@ h1{
     border-radius: 6px;
 }
 
-.ladoBatalla{
+.ladoBatalla {
     position: absolute;
     text-align: center;
     color: #fff;
     text-shadow: 2px 2px 4px #000;
 }
 
-.jugadorActivo{
+.jugadorActivo {
     background: rgba(3, 53, 43, 0.61);
     box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
     color: #00ffcc;
@@ -102,7 +107,8 @@ h1{
     backdrop-filter: blur(10px);
 }
 
-#tituloJugador1, #tituloJugador2{
+#tituloJugador1,
+#tituloJugador2 {
     position: absolute;
     left: 50%;
     top: -70px;
@@ -112,7 +118,7 @@ h1{
     pointer-events: none;
 }
 
-#panelMarcador{
+#panelMarcador {
     position: absolute;
     top: 0%;
     left: 12%;
@@ -122,14 +128,14 @@ h1{
     z-index: 2;
 }
 
-#imagenMarcador{
+#imagenMarcador {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
 }
 
-#registroCombate{
+#registroCombate {
     position: absolute;
     top: 5.3%;
     width: 293px;
@@ -148,23 +154,23 @@ h1{
     z-index: 3;
 }
 
-#registroCombate::-webkit-scrollbar{
+#registroCombate::-webkit-scrollbar {
     display: none;
 }
 
-#listaRegistroCombate{
+#listaRegistroCombate {
     list-style: none;
     margin: 0;
     padding-left: 0;
     text-align: center;
 }
 
-#listaRegistroCombate li{
+#listaRegistroCombate li {
     margin-top: 14px;
     margin-bottom: 14px;
 }
 
-#panelControles{
+#panelControles {
     position: absolute;
     bottom: 5%;
     right: 5%;
@@ -174,13 +180,17 @@ h1{
     gap: 12px;
 }
 
-#grupoIzquierda, #grupoDerecha{
+#grupoIzquierda,
+#grupoDerecha {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-#botonMochila, #botonAtacar, #botonHuir, #botonCambiar{
+#botonMochila,
+#botonAtacar,
+#botonHuir,
+#botonCambiar {
     width: 225px;
     height: 50px;
     font-size: 20px;
@@ -192,52 +202,55 @@ h1{
     transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
-#botonHuir{
+#botonHuir {
     background: linear-gradient(135deg, #1e90ff, #0046b3);
     box-shadow: 0 0 0 2px rgba(80, 160, 255, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 160, 255, 0.7);
 }
 
-#botonCambiar{
+#botonCambiar {
     background: linear-gradient(135deg, #1ccf4d, #0b8a2a);
     box-shadow: 0 0 0 2px rgba(80, 255, 150, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(80, 255, 150, 0.7);
 }
 
-#botonAtacar{
+#botonAtacar {
     background: linear-gradient(135deg, #ff3838, #b31217);
     box-shadow: 0 0 0 2px rgba(255, 80, 80, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 80, 80, 0.7);
 }
 
-#botonMochila{
+#botonMochila {
     background: linear-gradient(135deg, #ff8c00, #cc7000);
     box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.6), 0 10px 18px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 140, 0, 0.7);
     transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
-#botonMochila:hover{
+#botonMochila:hover {
     transform: translateY(-2px) scale(1.03);
     filter: brightness(1.1);
     box-shadow: 0 0 0 3px rgba(255, 165, 80, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 165, 80, 1);
 }
 
-#botonAtacar:hover{
+#botonAtacar:hover {
     transform: translateY(-2px) scale(1.03);
     filter: brightness(1.1);
     box-shadow: 0 0 0 3px rgba(255, 120, 120, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 120, 120, 1);
 }
 
-#botonHuir:hover{
+#botonHuir:hover {
     transform: translateY(-2px) scale(1.03);
     filter: brightness(1.1);
     box-shadow: 0 0 0 3px rgba(140, 200, 255, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(140, 200, 255, 1);
 }
 
-#botonCambiar:hover{
+#botonCambiar:hover {
     transform: translateY(-2px) scale(1.03);
     filter: brightness(1.1);
     box-shadow: 0 0 0 3px rgba(140, 255, 200, 0.9), 0 14px 22px rgba(0, 0, 0, 0.7), 0 0 32px rgba(140, 255, 200, 1);
 }
 
-#botonMochila:disabled, #botonAtacar:disabled, #botonCambiar:disabled, #botonHuir:disabled{
+#botonMochila:disabled,
+#botonAtacar:disabled,
+#botonCambiar:disabled,
+#botonHuir:disabled {
     background: #555;
     color: #ccc;
     cursor: not-allowed;
@@ -246,10 +259,10 @@ h1{
     filter: none;
 }
 
-.menuCambiarPokemon{
+.menuCambiarPokemon {
     position: absolute;
     width: 220px;
-    bottom: 170px;
+    bottom: 160px;
     right: 190px;
     background: radial-gradient(circle at top, #1f3d28, #1b422b);
     border-radius: 12px;
@@ -267,10 +280,10 @@ h1{
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
-.menuMochila{
+.menuMochila {
     position: absolute;
-    bottom: 170px;
-    right: 430px;
+    bottom: 25px;
+    right: 660px;
     background: radial-gradient(circle at top, #1f3d28, #1b422b);
     border-radius: 12px;
     padding: 10px;
@@ -281,26 +294,28 @@ h1{
     z-index: 5;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(50%) translateY(10px);
+    transform: translateX(80%) translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
     box-shadow: 0 10px 18px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 180, 0.35);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+
 }
 
-.menuCambiarPokemon.oculto, .menuMochila.oculto{
+.menuCambiarPokemon.oculto,
+.menuMochila.oculto {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
-.menuCambiarPokemon:not(.oculto), .menuMochila:not(.oculto){
+.menuCambiarPokemon:not(.oculto),
+.menuMochila:not(.oculto) {
     opacity: 1;
     visibility: visible;
     transform: translateX(50%) translateY(0);
 }
 
-
-.botonOpcionCambio{
+.botonOpcionCambio {
     border: none;
     padding: 8px 12px;
     font-size: 14px;
@@ -316,13 +331,13 @@ h1{
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-.botonOpcionCambio:hover{
+.botonOpcionCambio:hover {
     background: linear-gradient(135deg, #2fa36a, #1b7b4b);
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
-.barraVida{
+.barraVida {
     position: relative;
     height: 20px;
     padding: 3px;
@@ -331,7 +346,7 @@ h1{
     margin: 6px auto 0;
 }
 
-.rellenoVida{
+.rellenoVida {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -339,7 +354,7 @@ h1{
     transition: width 0.25s ease, background-color 0.25s ease;
 }
 
-.textoVida{
+.textoVida {
     position: relative;
     z-index: 1;
     display: block;
@@ -349,7 +364,7 @@ h1{
     line-height: 20px;
 }
 
-.panelVida{
+.panelVida {
     width: 300px;
     background: radial-gradient(circle at top, rgba(40, 60, 90, 0.95), rgba(10, 15, 25, 0.95));
     padding: 6px 12px 10px;
@@ -360,30 +375,31 @@ h1{
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.contenedorPokeballs{
+.contenedorPokeballs {
     display: flex;
     gap: 6px;
     justify-content: flex-end;
     margin-top: 6px;
 }
 
-.contenedorPokeballs img{
+.contenedorPokeballs img {
     width: 35px;
     height: 35px;
 }
 
-#nombrePokemon1, #nombrePokemon2{
+#nombrePokemon1,
+#nombrePokemon2 {
     font-size: 20px;
     font-weight: bold;
 
 }
 
-#contenedorJugador1.ladoBatalla{
+#contenedorJugador1.ladoBatalla {
     transform: scale(0.85);
     transform-origin: center bottom;
 }
 
-#contenedorJugador2.ladoBatalla{
+#contenedorJugador2.ladoBatalla {
     transform: scale(0.85);
     transform-origin: center bottom;
 }
