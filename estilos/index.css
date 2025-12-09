@@ -1,37 +1,38 @@
-body{
+body {
     font-family: Arial, sans-serif;
     color: #fff;
     margin: 0;
     padding: 10px;
-    background:radial-gradient(1400px 700px at 15% -10%, #294a9f 0%, #1a2145 40%, #060818 100%);
+    background: radial-gradient(1400px 700px at 15% -10%, #294a9f 0%, #1a2145 40%, #060818 100%);
     background-size: 300% 100%;
     position: relative;
     overflow-x: hidden;
-    }
+}
 
-#zonaEquipos{
+#zonaEquipos {
     max-width: 900px;
     margin: 40px auto 60px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     row-gap: 20px;
-    }
+}
 
-.coljugador{
+.coljugador {
     flex: 0 0 45%;
     text-align: center;
 }
 
-#tituloJugador1, #tituloJugador2{
+#tituloJugador1,
+#tituloJugador2 {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px 24px;
     border-radius: 999px;
     background: #16213e;
     border: 3px solid #ffcc00;
-    min-width: 400px;
+    min-width: 450px;
     margin: 0 auto 10px;
     color: #ffcc00;
     font-size: 1.5rem;
@@ -41,12 +42,13 @@ body{
     box-sizing: border-box;
 }
 
-#tituloJugador1::placeholder, #tituloJugador2::placeholder{
+#tituloJugador1::placeholder,
+#tituloJugador2::placeholder {
     color: #ffcc00;
     opacity: 0.6;
 }
 
-.equipoBox{
+.equipoBox {
     display: block;
     margin: 0 auto;
     padding: 10px;
@@ -58,12 +60,12 @@ body{
     text-align: center;
 }
 
-#zonaEquipos #botonComenzar{
+#zonaEquipos #botonComenzar {
     display: block;
     margin: 30px auto 0;
 }
 
-#botonComenzar{
+#botonComenzar {
     background: #ffcc00;
     color: #1a1a2e;
     border: none;
@@ -75,40 +77,41 @@ body{
     margin-top: 20px;
 }
 
-#botonComenzar:disabled{
+#botonComenzar:disabled {
     background: #555;
     cursor: not-allowed;
 }
 
-#botonComenzar:hover:not(:disabled){
+#botonComenzar:hover:not(:disabled) {
     background: #ffd700;
     transform: scale(1.05);
 }
 
-h1, h2{
+h1,
+h2 {
     color: #ffcc00;
 }
 
-h1{
-text-align: center;
+h1 {
+    text-align: center;
     margin-top: 10px;
     margin-bottom: 30px;
 }
 
-#seleccion h1{
+#seleccion h1 {
     text-align: center;
 }
 
 
-#listaPokemons{
+#listaPokemons {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 40px;
     margin: 30px auto 20px;
     max-width: 1100px;
-    }
+}
 
-.pokemonCard{
+.pokemonCard {
     border: 2px solid #444;
     background: #2a2a3e;
     padding: 16px 12px;
@@ -116,17 +119,17 @@ text-align: center;
     text-align: center;
     cursor: pointer;
     border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.pokemonCard:hover{
+.pokemonCard:hover {
     border-color: #ffcc00;
     transform: translateY(-3px);
     box-shadow: 0 0 18px rgba(255, 204, 0, 0.4);
 }
 
-.pokemonCard img{
+.pokemonCard img {
     width: 96px;
     height: 96px;
     object-fit: contain;
@@ -135,13 +138,13 @@ text-align: center;
     margin: 0 auto 8px;
 }
 
-.pokemonCard p{
+.pokemonCard p {
     margin: 0;
     font-size: 13px;
     font-weight: bold;
 }
 
-.jugadorActivo{
+.jugadorActivo {
     padding: 6px 14px;
     border-radius: 6px;
     background: #233554;
@@ -150,18 +153,19 @@ text-align: center;
     transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
-body.fade-out{
+body.fade-out {
     animation: fadeGradientOut 0.7s ease forwards;
     position: relative;
 }
 
-@keyframes fadeGradientOut{
+@keyframes fadeGradientOut {
     0% {
         opacity: 1;
-        background: radial-gradient(circle at center, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 60%);
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60%);
     }
+
     100% {
         opacity: 0;
-        background: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 70%);
-        }
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 70%);
+    }
 }
