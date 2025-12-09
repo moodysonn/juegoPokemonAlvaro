@@ -282,7 +282,7 @@ h1 {
 
 .menuMochila {
     position: absolute;
-    bottom: 25px;
+    bottom: 35px;
     right: 660px;
     background: radial-gradient(circle at top, #1f3d28, #1b422b);
     border-radius: 12px;
