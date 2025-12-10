@@ -31,10 +31,10 @@ body {
     padding: 20px 24px;
     border-radius: 999px;
     background: #16213e;
-    border: 3px solid #ffcc00;
+    border: 3px solid #007bff;
     min-width: 450px;
     margin: 0 auto 10px;
-    color: #ffcc00;
+    color: #ffffff;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
@@ -44,7 +44,7 @@ body {
 
 #tituloJugador1::placeholder,
 #tituloJugador2::placeholder {
-    color: #ffcc00;
+    color: #ffffff;
     opacity: 0.6;
 }
 
@@ -54,7 +54,7 @@ body {
     padding: 10px;
     width: 400px;
     border-radius: 10px;
-    border: 3px solid #ffcc00;
+    border: 3px solid #007bff;
     background: #16213e;
     font-weight: bold;
     text-align: center;
@@ -66,8 +66,8 @@ body {
 }
 
 #botonComenzar {
-    background: #ffcc00;
-    color: #1a1a2e;
+    background: linear-gradient(135deg, #2196f3, #0d47a1);
+    color: #ffffff;
     border: none;
     padding: 12px 24px;
     font-size: 16px;
@@ -75,21 +75,24 @@ body {
     cursor: pointer;
     border-radius: 8px;
     margin-top: 20px;
-}
-
-#botonComenzar:disabled {
-    background: #555;
-    cursor: not-allowed;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 #botonComenzar:hover:not(:disabled) {
-    background: #ffd700;
+    background: linear-gradient(135deg, #42a5f5, #1565c0);
     transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(33, 150, 243, 0.7);
 }
+
+#botonComenzar:disabled {
+    background: linear-gradient(135deg, #90a4ae, #607d8b);
+    cursor: not-allowed;
+}
+
 
 h1,
 h2 {
-    color: #ffcc00;
+    color: #ffffff;
 }
 
 h1 {
